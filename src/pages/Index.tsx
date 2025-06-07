@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -6,8 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useToast } from "@/hooks/use-toast";
-import { Github, Mail, ExternalLink, Award, Users, Code2, Cloud, Shield, Settings, Phone } from "lucide-react";
+import { Github, Mail, ExternalLink, Award, Users, Code2, Cloud, Shield, Settings, Phone, ChevronLeft, ChevronRight, Linkedin } from "lucide-react";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -77,9 +77,17 @@ const Index = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Portfolio Contact: Message from ${formData.name}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+      const mailtoLink = `mailto:sakethsadu@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open default email client
+      window.location.href = mailtoLink;
+      
       toast({
-        title: "Thank you!",
-        description: "Your message has been sent.",
+        title: "Email client opened!",
+        description: "Your default email application should now be open with the message pre-filled.",
       });
       setFormData({ name: '', email: '', message: '' });
       setFormErrors({ name: '', email: '', message: '' });
@@ -162,6 +170,34 @@ const Index = () => {
     }
   ];
 
+  const projects = [
+    {
+      id: 1,
+      title: "CloudOps Dashboard & IAM Monitoring Automation (2024)",
+      description: "Developed IAM user access monitoring with AWS Lambda and Python to track anomalies and enforce least-privilege roles. Implemented audit log aggregation from IAM and CloudTrail using OpenSearch for real-time access tracking. Integrated multi-factor access audit and notification system using SNS for security rule violations.",
+      link: "https://github.com/Saketh2406/CloudOpsDashboard",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
+      alt: "CloudOps Dashboard interface showing monitoring data"
+    },
+    {
+      id: 2,
+      title: "DevOpsified Go Web App on AWS EKS",
+      description: "Dockerized a Go-based web application and deployed it on AWS EKS using eksctl and Kubernetes best practices. Configured Deployment, Service, and Ingress resources with NGINX Ingress Controller and AWS Load Balancer. Streamlined infrastructure setup with YAML manifests and exposed the app via a custom domain.",
+      link: "https://github.com/Saketh2406/GoWebAppEKS",
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop",
+      alt: "Kubernetes deployment dashboard showing EKS cluster"
+    },
+    {
+      id: 3,
+      title: "Southwest Airlines Intelligent Operations Platform",
+      description: "Designing a cloud-native operations command center platform using AWS services to improve Southwest Airlines' operational efficiency. Implementing real-time data analytics with AWS Kinesis, secure microservices architecture with EKS, and automated incident response workflows. Features include predictive maintenance alerts, flight optimization algorithms, and comprehensive security monitoring with CloudTrail and GuardDuty.",
+      link: "https://github.com/Saketh2406/southwest-ops-platform",
+      image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=400&fit=crop",
+      alt: "Airline operations control center with multiple monitoring screens",
+      inProgress: true
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Navigation */}
@@ -196,8 +232,8 @@ const Index = () => {
       </nav>
 
       {/* Container */}
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Hero Section - Updated with new photo and floating text */}
+      <div className="max-w-6xl mx-auto px-4 py-4">
+        {/* Hero Section */}
         <section id="hero" className="pt-24 pb-20 relative overflow-hidden">
           {/* Floating text elements */}
           <div className="absolute inset-0 pointer-events-none">
@@ -248,33 +284,12 @@ const Index = () => {
                   <Mail size={36} />
                 </a>
                 <a
-                  href="tel:3143350950"
+                  href="tel:+13143350950"
                   className="text-gray-600 hover:text-gray-900 transform hover:scale-110 transition-all duration-200"
                   aria-label="Phone"
                 >
                   <Phone size={36} />
                 </a>
-              </div>
-              
-              <div className="space-y-3 pt-4">
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-gray-600" />
-                  <a 
-                    href="mailto:sakethsadu@gmail.com"
-                    className="text-lg text-gray-700 hover:text-blue-600 transition-colors duration-200"
-                  >
-                    sakethsadu@gmail.com
-                  </a>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-gray-600" />
-                  <a 
-                    href="tel:3143350950"
-                    className="text-lg text-gray-700 hover:text-blue-600 transition-colors duration-200"
-                  >
-                    (314) 335-0950
-                  </a>
-                </div>
               </div>
             </div>
 
@@ -491,63 +506,67 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Projects Section */}
+        {/* Projects Section with Carousel */}
         <section id="projects" className="py-12">
           <h2 className="text-3xl font-semibold text-gray-900 mb-12 text-center">Selected Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="hover:shadow-lg transition-shadow duration-200 border-gray-200">
-              <div className="aspect-video bg-gray-100 rounded-t-lg flex items-center justify-center">
-                <span className="text-gray-500">CloudOps Dashboard</span>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-gray-900">
-                  CloudOps Dashboard & IAM Monitoring Automation (2024)
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Developed IAM user access monitoring with AWS Lambda and Python to track anomalies and enforce 
-                  least-privilege roles. Implemented audit log aggregation from IAM and CloudTrail using OpenSearch 
-                  for real-time access tracking. Integrated multi-factor access audit and notification system using 
-                  SNS for security rule violations.
-                </p>
-                <a
-                  href="https://github.com/saketh-reddy/CloudOpsDashboard"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center gap-1 transition-colors duration-200"
-                >
-                  View on GitHub <ExternalLink size={16} />
-                </a>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow duration-200 border-gray-200">
-              <div className="aspect-video bg-gray-100 rounded-t-lg flex items-center justify-center">
-                <span className="text-gray-500">Go Web App on EKS</span>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-gray-900">
-                  DevOpsified Go Web App on AWS EKS
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Dockerized a Go-based web application and deployed it on AWS EKS using eksctl and Kubernetes 
-                  best practices. Configured Deployment, Service, and Ingress resources with NGINX Ingress 
-                  Controller and AWS Load Balancer. Streamlined infrastructure setup with YAML manifests and 
-                  exposed the app via a custom domain.
-                </p>
-                <a
-                  href="https://github.com/saketh-reddy/GoWebAppEKS"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center gap-1 transition-colors duration-200"
-                >
-                  View on GitHub <ExternalLink size={16} />
-                </a>
-              </CardContent>
-            </Card>
+          <div className="relative max-w-5xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {projects.map((project) => (
+                  <CarouselItem key={project.id} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                    <Card className="hover:shadow-lg transition-shadow duration-200 border-gray-200 h-full relative">
+                      {project.inProgress && (
+                        <Badge 
+                          className="absolute top-4 right-4 z-10 bg-yellow-100 text-yellow-800 border-yellow-300"
+                        >
+                          In Progress
+                        </Badge>
+                      )}
+                      <div className="aspect-video bg-gray-100 rounded-t-lg overflow-hidden">
+                        <img 
+                          src={project.image} 
+                          alt={project.alt}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <CardHeader>
+                        <CardTitle className="text-lg font-semibold text-gray-900 leading-tight">
+                          {project.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="flex-1 flex flex-col">
+                        <p className="text-gray-700 leading-relaxed mb-4 flex-1">
+                          {project.description}
+                        </p>
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center gap-1 transition-colors duration-200 mt-auto"
+                          aria-label={`View ${project.title} on GitHub`}
+                        >
+                          View on GitHub <ExternalLink size={16} />
+                        </a>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious 
+                className="absolute -left-12 top-1/2 -translate-y-1/2 bg-white border-gray-300 hover:bg-gray-50"
+                aria-label="Previous project"
+              />
+              <CarouselNext 
+                className="absolute -right-12 top-1/2 -translate-y-1/2 bg-white border-gray-300 hover:bg-gray-50"
+                aria-label="Next project"
+              />
+            </Carousel>
           </div>
         </section>
 
@@ -631,73 +650,57 @@ const Index = () => {
 
         {/* Contact Section */}
         <section id="contact" className="py-12 mb-20">
-          <h2 className="text-3xl font-semibold text-gray-900 mb-8 text-center">Get In Touch</h2>
+          <h2 className="text-3xl font-semibold text-gray-900 mb-8 text-center">Let's Connect</h2>
           <p className="text-lg text-gray-700 text-center mb-12">
-            I'm always open to discussing new opportunities or interesting projects. Feel free to say hello!
+            Feel free to reach out through any of these channels
           </p>
-          <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
-                Name *
-              </label>
-              <Input
-                id="name"
-                type="text"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={(e) => handleInputChange('name', e.target.value)}
-                className={`${formErrors.name ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-blue-500`}
-                required
-                aria-label="Name"
-              />
-              {formErrors.name && (
-                <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>
-              )}
+          <div className="max-w-lg mx-auto">
+            <div className="space-y-6">
+              {/* Email */}
+              <div className="flex items-center justify-center space-x-4 p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                <Mail className="w-6 h-6 text-gray-600" />
+                <div className="text-center">
+                  <p className="text-sm text-gray-500 mb-1">Email</p>
+                  <a 
+                    href="mailto:sakethsadu@gmail.com"
+                    className="text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    sakethsadu@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-center justify-center space-x-4 p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                <Phone className="w-6 h-6 text-gray-600" />
+                <div className="text-center">
+                  <p className="text-sm text-gray-500 mb-1">Phone</p>
+                  <a 
+                    href="tel:+13143350950"
+                    className="text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    +1 (314) 335-0950
+                  </a>
+                </div>
+              </div>
+
+              {/* LinkedIn */}
+              <div className="flex items-center justify-center space-x-4 p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                <Linkedin className="w-6 h-6 text-gray-600" />
+                <div className="text-center">
+                  <p className="text-sm text-gray-500 mb-1">LinkedIn</p>
+                  <a 
+                    href="https://linkedin.com/in/saketh-reddy-sadu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    linkedin.com/in/saketh-reddy-sadu
+                  </a>
+                </div>
+              </div>
             </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
-                Email *
-              </label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="you@example.com"
-                value={formData.email}
-                onChange={(e) => handleInputChange('email', e.target.value)}
-                className={`${formErrors.email ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-blue-500`}
-                required
-                aria-label="Email"
-              />
-              {formErrors.email && (
-                <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
-              )}
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
-                Message *
-              </label>
-              <Textarea
-                id="message"
-                placeholder="Your message (at least 10 characters)"
-                rows={4}
-                value={formData.message}
-                onChange={(e) => handleInputChange('message', e.target.value)}
-                className={`${formErrors.message ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-blue-500 resize-none`}
-                required
-              />
-              {formErrors.message && (
-                <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>
-              )}
-            </div>
-            <Button
-              type="submit"
-              disabled={!isFormValid()}
-              className="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium py-3 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-label="Send Message"
-            >
-              Send Message
-            </Button>
-          </form>
+          </div>
         </section>
 
         {/* Footer */}
