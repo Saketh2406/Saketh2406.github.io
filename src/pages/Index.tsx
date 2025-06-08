@@ -7,7 +7,38 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useToast } from "@/hooks/use-toast";
-import { Github, Mail, ExternalLink, Award, Users, Code2, Cloud, Shield, Settings, Phone, ChevronLeft, ChevronRight, Linkedin } from "lucide-react";
+import { 
+  Github, 
+  Mail, 
+  ExternalLink, 
+  Award, 
+  Users, 
+  Code2, 
+  Cloud, 
+  Shield, 
+  Settings, 
+  Phone, 
+  ChevronLeft, 
+  ChevronRight, 
+  Linkedin,
+  Server,
+  Database,
+  Network,
+  Zap,
+  Box,
+  Layers,
+  GitBranch,
+  Terminal,
+  Monitor,
+  BarChart3,
+  Activity,
+  Search,
+  ShieldCheck,
+  MapPin,
+  Calendar,
+  GraduationCap,
+  Building2
+} from "lucide-react";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -236,7 +267,7 @@ const Index = () => {
         {/* Hero Section */}
         <section id="hero" className="pt-24 pb-20 relative overflow-hidden">
           {/* Floating text elements */}
-          <div className="absolute inset-0 pointer-events-none">
+          {/* <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-32 left-8 text-blue-100 text-sm font-medium animate-pulse">
               <Cloud className="w-6 h-6 inline mr-2" />
               Cloud Infrastructure
@@ -249,7 +280,7 @@ const Index = () => {
               <Shield className="w-6 h-6 inline mr-2" />
               Security Best Practices
             </div>
-          </div>
+          </div> */}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh] relative z-10">
             {/* Left Column - Content */}
@@ -261,9 +292,9 @@ const Index = () => {
                 <h2 className="text-2xl lg:text-3xl text-gray-600 leading-relaxed font-medium">
                   DevOps Engineer specializing in Cloud Infrastructure & Security
                 </h2>
-                <p className="text-xl text-gray-700 leading-relaxed max-w-lg">
+                {/* <p className="text-xl text-gray-700 leading-relaxed max-w-lg">
                   Experienced in automating cloud infrastructure, implementing security best practices, and optimizing system reliability through modern DevOps methodologies.
-                </p>
+                </p> */}
               </div>
               
               <div className="flex space-x-6 pt-6">
@@ -335,15 +366,32 @@ const Index = () => {
             {/* AWS Skills */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-gray-800 text-center">Amazon Web Services (AWS)</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {awsSkills.map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="outline"
-                    className="py-3 px-4 text-center border-blue-200 text-blue-700 hover:bg-blue-50 transition-all duration-200 cursor-default"
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {[
+                  { name: 'IAM', icon: <Shield className="w-8 h-8" />, borderColor: 'border-blue-500' },
+                  { name: 'EC2', icon: <Server className="w-8 h-8" />, borderColor: 'border-orange-500' },
+                  { name: 'S3', icon: <Database className="w-8 h-8" />, borderColor: 'border-green-500' },
+                  { name: 'VPC', icon: <Network className="w-8 h-8" />, borderColor: 'border-purple-500' },
+                  { name: 'RDS', icon: <Database className="w-8 h-8" />, borderColor: 'border-indigo-500' },
+                  { name: 'Lambda', icon: <Zap className="w-8 h-8" />, borderColor: 'border-yellow-500' },
+                  { name: 'CloudFormation', icon: <Layers className="w-8 h-8" />, borderColor: 'border-red-500' },
+                  { name: 'CloudWatch', icon: <Activity className="w-8 h-8" />, borderColor: 'border-pink-500' },
+                  { name: 'SNS', icon: <Mail className="w-8 h-8" />, borderColor: 'border-teal-500' },
+                  { name: 'SQS', icon: <Box className="w-8 h-8" />, borderColor: 'border-cyan-500' },
+                  { name: 'EKS', icon: <Settings className="w-8 h-8" />, borderColor: 'border-emerald-500' },
+                  { name: 'ELB', icon: <Network className="w-8 h-8" />, borderColor: 'border-amber-500' },
+                  { name: 'Route 53', icon: <Search className="w-8 h-8" />, borderColor: 'border-rose-500' },
+                  { name: 'CloudTrail', icon: <BarChart3 className="w-8 h-8" />, borderColor: 'border-violet-500' }
+                ].map((skill) => (
+                  <div
+                    key={skill.name}
+                    className={`bg-white border-2 ${skill.borderColor} rounded-2xl p-6 flex flex-col items-center space-y-3 hover:scale-105 transition-transform duration-200 cursor-default shadow-sm`}
                   >
-                    {skill}
-                  </Badge>
+                    <div className="text-gray-700">
+                      {skill.icon}
+                    </div>
+                    <span className="text-sm font-medium text-gray-900 text-center">{skill.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -353,28 +401,39 @@ const Index = () => {
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-gray-800 text-center">Microsoft Azure</h3>
                 <div className="grid grid-cols-1 gap-4">
-                  {azureSkills.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="outline"
-                      className="py-3 px-4 text-center border-indigo-200 text-indigo-700 hover:bg-indigo-50 transition-all duration-200 cursor-default"
+                  {[
+                    { name: 'Azure AD (Entra ID)', icon: <Shield className="w-8 h-8" />, borderColor: 'border-blue-600' },
+                    { name: 'ADFS', icon: <Users className="w-8 h-8" />, borderColor: 'border-indigo-600' },
+                    { name: 'SSO', icon: <ShieldCheck className="w-8 h-8" />, borderColor: 'border-purple-600' }
+                  ].map((skill) => (
+                    <div
+                      key={skill.name}
+                      className={`bg-white border-2 ${skill.borderColor} rounded-2xl p-6 flex flex-col items-center space-y-3 hover:scale-105 transition-transform duration-200 cursor-default shadow-sm`}
                     >
-                      {skill}
-                    </Badge>
+                      <div className="text-gray-700">
+                        {skill.icon}
+                      </div>
+                      <span className="text-sm font-medium text-gray-900 text-center">{skill.name}</span>
+                    </div>
                   ))}
                 </div>
               </div>
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-gray-800 text-center">Google Cloud Platform (GCP)</h3>
                 <div className="grid grid-cols-1 gap-4">
-                  {gcpSkills.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="outline"
-                      className="py-3 px-4 text-center border-green-200 text-green-700 hover:bg-green-50 transition-all duration-200 cursor-default"
+                  {[
+                    { name: 'Compute Engine', icon: <Server className="w-8 h-8" />, borderColor: 'border-green-600' },
+                    { name: 'IAM', icon: <Shield className="w-8 h-8" />, borderColor: 'border-emerald-600' }
+                  ].map((skill) => (
+                    <div
+                      key={skill.name}
+                      className={`bg-white border-2 ${skill.borderColor} rounded-2xl p-6 flex flex-col items-center space-y-3 hover:scale-105 transition-transform duration-200 cursor-default shadow-sm`}
                     >
-                      {skill}
-                    </Badge>
+                      <div className="text-gray-700">
+                        {skill.icon}
+                      </div>
+                      <span className="text-sm font-medium text-gray-900 text-center">{skill.name}</span>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -383,15 +442,26 @@ const Index = () => {
             {/* Infrastructure & DevOps */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-gray-800 text-center">Infrastructure as Code & DevOps</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {iacDevOpsSkills.map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="outline"
-                    className="py-3 px-4 text-center border-purple-200 text-purple-700 hover:bg-purple-50 transition-all duration-200 cursor-default"
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {[
+                  { name: 'Terraform', icon: <Layers className="w-8 h-8" />, borderColor: 'border-purple-600' },
+                  { name: 'CloudFormation', icon: <Cloud className="w-8 h-8" />, borderColor: 'border-orange-600' },
+                  { name: 'Ansible', icon: <Settings className="w-8 h-8" />, borderColor: 'border-red-600' },
+                  { name: 'Docker', icon: <Box className="w-8 h-8" />, borderColor: 'border-blue-600' },
+                  { name: 'Kubernetes', icon: <Network className="w-8 h-8" />, borderColor: 'border-indigo-600' },
+                  { name: 'Jenkins', icon: <GitBranch className="w-8 h-8" />, borderColor: 'border-gray-600' },
+                  { name: 'GitHub Actions', icon: <Code2 className="w-8 h-8" />, borderColor: 'border-green-600' },
+                  { name: 'GitLab CI/CD', icon: <GitBranch className="w-8 h-8" />, borderColor: 'border-orange-500' }
+                ].map((skill) => (
+                  <div
+                    key={skill.name}
+                    className={`bg-white border-2 ${skill.borderColor} rounded-2xl p-6 flex flex-col items-center space-y-3 hover:scale-105 transition-transform duration-200 cursor-default shadow-sm`}
                   >
-                    {skill}
-                  </Badge>
+                    <div className="text-gray-700">
+                      {skill.icon}
+                    </div>
+                    <span className="text-sm font-medium text-gray-900 text-center">{skill.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -400,14 +470,22 @@ const Index = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-gray-800 text-center">Programming & Scripting</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {programmingSkills.map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="outline"
-                    className="py-3 px-4 text-center border-orange-200 text-orange-700 hover:bg-orange-50 transition-all duration-200 cursor-default"
+                {[
+                  { name: 'Python', icon: <Code2 className="w-8 h-8" />, borderColor: 'border-yellow-600' },
+                  { name: 'Bash', icon: <Terminal className="w-8 h-8" />, borderColor: 'border-gray-700' },
+                  { name: 'PowerShell', icon: <Terminal className="w-8 h-8" />, borderColor: 'border-blue-700' },
+                  { name: 'Linux Administration', icon: <Monitor className="w-8 h-8" />, borderColor: 'border-green-700' },
+                  { name: 'Git', icon: <GitBranch className="w-8 h-8" />, borderColor: 'border-orange-700' }
+                ].map((skill) => (
+                  <div
+                    key={skill.name}
+                    className={`bg-white border-2 ${skill.borderColor} rounded-2xl p-6 flex flex-col items-center space-y-3 hover:scale-105 transition-transform duration-200 cursor-default shadow-sm`}
                   >
-                    {skill}
-                  </Badge>
+                    <div className="text-gray-700">
+                      {skill.icon}
+                    </div>
+                    <span className="text-sm font-medium text-gray-900 text-center">{skill.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -416,14 +494,23 @@ const Index = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-gray-800 text-center">Monitoring & Observability</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {monitoringSkills.map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="outline"
-                    className="py-3 px-4 text-center border-teal-200 text-teal-700 hover:bg-teal-50 transition-all duration-200 cursor-default"
+                {[
+                  { name: 'OpenSearch', icon: <Search className="w-8 h-8" />, borderColor: 'border-teal-600' },
+                  { name: 'Prometheus', icon: <BarChart3 className="w-8 h-8" />, borderColor: 'border-orange-600' },
+                  { name: 'Grafana', icon: <Activity className="w-8 h-8" />, borderColor: 'border-orange-500' },
+                  { name: 'ELK Stack', icon: <Database className="w-8 h-8" />, borderColor: 'border-yellow-700' },
+                  { name: 'Nginx', icon: <Server className="w-8 h-8" />, borderColor: 'border-green-600' },
+                  { name: 'Load Balancing', icon: <Network className="w-8 h-8" />, borderColor: 'border-purple-600' }
+                ].map((skill) => (
+                  <div
+                    key={skill.name}
+                    className={`bg-white border-2 ${skill.borderColor} rounded-2xl p-6 flex flex-col items-center space-y-3 hover:scale-105 transition-transform duration-200 cursor-default shadow-sm`}
                   >
-                    {skill}
-                  </Badge>
+                    <div className="text-gray-700">
+                      {skill.icon}
+                    </div>
+                    <span className="text-sm font-medium text-gray-900 text-center">{skill.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -432,14 +519,23 @@ const Index = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-gray-800 text-center">Security & Compliance</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {securitySkills.map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="outline"
-                    className="py-3 px-4 text-center border-red-200 text-red-700 hover:bg-red-50 transition-all duration-200 cursor-default"
+                {[
+                  { name: 'RBAC', icon: <Shield className="w-8 h-8" />, borderColor: 'border-red-600' },
+                  { name: 'MFA', icon: <ShieldCheck className="w-8 h-8" />, borderColor: 'border-red-500' },
+                  { name: 'PIM', icon: <Users className="w-8 h-8" />, borderColor: 'border-pink-600' },
+                  { name: 'Conditional Access', icon: <Shield className="w-8 h-8" />, borderColor: 'border-rose-600' },
+                  { name: 'Backup & Disaster Recovery', icon: <Database className="w-8 h-8" />, borderColor: 'border-indigo-700' },
+                  { name: 'Incident Response', icon: <Activity className="w-8 h-8" />, borderColor: 'border-red-700' }
+                ].map((skill) => (
+                  <div
+                    key={skill.name}
+                    className={`bg-white border-2 ${skill.borderColor} rounded-2xl p-6 flex flex-col items-center space-y-3 hover:scale-105 transition-transform duration-200 cursor-default shadow-sm`}
                   >
-                    {skill}
-                  </Badge>
+                    <div className="text-gray-700">
+                      {skill.icon}
+                    </div>
+                    <span className="text-sm font-medium text-gray-900 text-center">{skill.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -448,14 +544,21 @@ const Index = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-gray-800 text-center">Project Management & Collaboration</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {managementSkills.map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="outline"
-                    className="py-3 px-4 text-center border-gray-300 text-gray-700 hover:bg-gray-100 transition-all duration-200 cursor-default"
+                {[
+                  { name: 'Agile/Scrum', icon: <Users className="w-8 h-8" />, borderColor: 'border-gray-600' },
+                  { name: 'Confluence', icon: <Settings className="w-8 h-8" />, borderColor: 'border-blue-600' },
+                  { name: 'JIRA', icon: <BarChart3 className="w-8 h-8" />, borderColor: 'border-blue-700' },
+                  { name: 'ServiceNow', icon: <Settings className="w-8 h-8" />, borderColor: 'border-green-600' }
+                ].map((skill) => (
+                  <div
+                    key={skill.name}
+                    className={`bg-white border-2 ${skill.borderColor} rounded-2xl p-6 flex flex-col items-center space-y-3 hover:scale-105 transition-transform duration-200 cursor-default shadow-sm`}
                   >
-                    {skill}
-                  </Badge>
+                    <div className="text-gray-700">
+                      {skill.icon}
+                    </div>
+                    <span className="text-sm font-medium text-gray-900 text-center">{skill.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -496,7 +599,9 @@ const Index = () => {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
                     {achievement.icon}
                   </div>
-                  <CardTitle className="text-lg font-semibold text-gray-900">{achievement.title}</CardTitle>
+                  <CardTitle className="text-lg font-semibold text-gray-900 leading-tight">
+                    {achievement.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700 leading-relaxed">{achievement.description}</p>
@@ -571,80 +676,200 @@ const Index = () => {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-12">
+        <section id="experience" className="py-16">
           <h2 className="text-3xl font-semibold text-gray-900 mb-12 text-center">Experience</h2>
-          <div className="space-y-12 max-w-3xl mx-auto">
-            <div className="border-l-4 border-blue-600 pl-6 opacity-100 transition-opacity duration-500">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                AWS Cloud Test Engineer Intern @ Nurtur Energy
-              </h3>
-              <p className="text-sm text-gray-500 mb-4">May 2024 – Jul 2024 | Maryland Heights, Missouri, USA</p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                  Automated AWS infrastructure health monitoring using CloudWatch and SNS alerts, reducing outage response times and supporting real-time system reliability.
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                  Developed IAM policies and crafted Python/Bash scripts for least-privilege access and secure service-to-service communication, aligning with rigorous security practices.
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                  Integrated real-time access tracking and security logs into OpenSearch for comprehensive user behavior auditing, reinforcing compliance measures.
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                  Designed and maintained IoT data ingestion pipelines with secure role-based access enforcement, demonstrating proficiency in infrastructure automation and continuous integration principles.
-                </li>
-              </ul>
-            </div>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <Card className="hover:shadow-lg transition-shadow duration-200 border-gray-200">
+              <CardHeader className="pb-4">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <Building2 className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl font-semibold text-gray-900">
+                        AWS Cloud Test Engineer Intern
+                      </CardTitle>
+                      <p className="text-lg text-blue-600 font-medium">Nurtur Energy</p>
+                    </div>
+                  </div>
+                  <Badge variant="outline" className="text-sm">
+                    Internship
+                  </Badge>
+                </div>
+                <div className="flex items-center space-x-4 text-gray-600 mt-2">
+                  <div className="flex items-center space-x-1">
+                    <Calendar className="w-4 h-4" />
+                    <span className="text-sm">May 2024 – Jul 2024</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-sm">Maryland Heights, Missouri, USA</span>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-blue-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
+                    Automated AWS infrastructure health monitoring using CloudWatch and SNS alerts, reducing outage response times and supporting real-time system reliability.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-blue-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
+                    Developed IAM policies and crafted Python/Bash scripts for least-privilege access and secure service-to-service communication, aligning with rigorous security practices.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-blue-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
+                    Integrated real-time access tracking and security logs into OpenSearch for comprehensive user behavior auditing, reinforcing compliance measures.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-blue-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
+                    Designed and maintained IoT data ingestion pipelines with secure role-based access enforcement, demonstrating proficiency in infrastructure automation and continuous integration principles.
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
 
-            <div className="border-l-4 border-blue-600 pl-6 opacity-100 transition-opacity duration-500">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                AWS Cloud Operate @ Cognizant Technology Solutions Corporation
-              </h3>
-              <p className="text-sm text-gray-500 mb-4">Mar 2022 – Jul 2023 | Hyderabad, India</p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                  Managed user accounts and IAM roles across AWS environments, conducting periodic access reviews to maintain compliance with security frameworks.
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                  Enhanced cloud security posture by implementing robust IAM policies, enforcing MFA, and logging activities via CloudTrail to uphold industry-standard practices.
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                  Facilitated infrastructure-as-code deployments using Terraform for consistent and automated resource provisioning.
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                  Investigated identity-related incidents leveraging CloudWatch metrics and logs, contributing to a zero-trust security approach and continuous operational improvements.
-                </li>
-              </ul>
-            </div>
+            <Card className="hover:shadow-lg transition-shadow duration-200 border-gray-200">
+              <CardHeader className="pb-4">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                      <Building2 className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl font-semibold text-gray-900">
+                        AWS Cloud Operate
+                      </CardTitle>
+                      <p className="text-lg text-green-600 font-medium">Cognizant Technology Solutions Corporation</p>
+                    </div>
+                  </div>
+                  <Badge variant="outline" className="text-sm">
+                    Full-time
+                  </Badge>
+                </div>
+                <div className="flex items-center space-x-4 text-gray-600 mt-2">
+                  <div className="flex items-center space-x-1">
+                    <Calendar className="w-4 h-4" />
+                    <span className="text-sm">Mar 2022 – Jul 2023</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-sm">Hyderabad, India</span>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-green-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
+                    Managed user accounts and IAM roles across AWS environments, conducting periodic access reviews to maintain compliance with security frameworks.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-green-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
+                    Enhanced cloud security posture by implementing robust IAM policies, enforcing MFA, and logging activities via CloudTrail to uphold industry-standard practices.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-green-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
+                    Facilitated infrastructure-as-code deployments using Terraform for consistent and automated resource provisioning.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-green-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
+                    Investigated identity-related incidents leveraging CloudWatch metrics and logs, contributing to a zero-trust security approach and continuous operational improvements.
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
         {/* Education Section */}
-        <section id="education" className="py-12">
+        <section id="education" className="py-16">
           <h2 className="text-3xl font-semibold text-gray-900 mb-12 text-center">Education</h2>
-          <div className="space-y-8 max-w-3xl mx-auto">
-            <div className="border-l-4 border-blue-600 pl-6 opacity-100 transition-opacity duration-500">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Master of Science in Information Systems @ Saint Louis University
-              </h3>
-              <p className="text-sm text-gray-500 mb-2">Aug 2024 – May 2025 | St. Louis, MO</p>
-              <p className="text-gray-700">GPA: 8.04/10</p>
-            </div>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <Card className="hover:shadow-lg transition-shadow duration-200 border-gray-200">
+              <CardHeader className="pb-4">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <GraduationCap className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl font-semibold text-gray-900">
+                        Master of Science in Information Systems
+                      </CardTitle>
+                      <p className="text-lg text-purple-600 font-medium">Saint Louis University</p>
+                    </div>
+                  </div>
+                  <Badge variant="outline" className="text-sm">
+                    Master's
+                  </Badge>
+                </div>
+                <div className="flex items-center space-x-4 text-gray-600 mt-2">
+                  <div className="flex items-center space-x-1">
+                    <Calendar className="w-4 h-4" />
+                    <span className="text-sm">Aug 2024 – May 2025</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-sm">St. Louis, MO</span>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-700">
+                    Advanced coursework in information systems, database management, and enterprise architecture.
+                  </p>
+                  <div className="text-right">
+                    <p className="text-sm text-gray-500">GPA</p>
+                    <p className="text-lg font-semibold text-gray-900">3.8/4</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
-            <div className="border-l-4 border-blue-600 pl-6 opacity-100 transition-opacity duration-500">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Bachelor of Technology in Electronics and Communication Engineering @ GITAM Deemed to be University
-              </h3>
-              <p className="text-sm text-gray-500 mb-2">Oct 2018 – Jun 2022 | Visakhapatnam, India</p>
-              <p className="text-gray-700">GPA: 8.04/10</p>
-            </div>
+            <Card className="hover:shadow-lg transition-shadow duration-200 border-gray-200">
+              <CardHeader className="pb-4">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                      <GraduationCap className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl font-semibold text-gray-900">
+                        Bachelor of Technology in Electronics and Communication Engineering
+                      </CardTitle>
+                      <p className="text-lg text-orange-600 font-medium">GITAM Deemed to be University</p>
+                    </div>
+                  </div>
+                  <Badge variant="outline" className="text-sm">
+                    Bachelor's
+                  </Badge>
+                </div>
+                <div className="flex items-center space-x-4 text-gray-600 mt-2">
+                  <div className="flex items-center space-x-1">
+                    <Calendar className="w-4 h-4" />
+                    <span className="text-sm">Oct 2018 – Jun 2022</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-sm">Visakhapatnam, India</span>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-700">
+                    Comprehensive study of electronics, communication systems, signal processing, and digital circuits.
+                  </p>
+                  <div className="text-right">
+                    <p className="text-sm text-gray-500">GPA</p>
+                    <p className="text-lg font-semibold text-gray-900">8.04/10</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
