@@ -226,6 +226,14 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=400&fit=crop",
       alt: "Airline operations control center with multiple monitoring screens",
       inProgress: true
+    },
+    {
+      id: 4,
+      title: "T-Mobile DevOps Microservice Application",
+      description: "A cloud-native microservice application built using Node.js and containerized with Docker, deployed on Amazon EC2, and managed with a full GitLab CI/CD pipeline. The project demonstrates core DevOps skills including infrastructure provisioning with Terraform, reverse proxy setup using NGINX, and automation using Ansible. Designed and deployed a RESTful microservice app on EC2 with automated builds and deployments.",
+      link: "https://github.com/Saketh2406/tmobile-devops-microservice",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+      alt: "DevOps microservice architecture diagram"
     }
   ];
 
@@ -267,7 +275,7 @@ const Index = () => {
         {/* Hero Section */}
         <section id="hero" className="pt-24 pb-20 relative overflow-hidden">
           {/* Floating text elements */}
-          {/* <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-32 left-8 text-blue-100 text-sm font-medium animate-pulse">
               <Cloud className="w-6 h-6 inline mr-2" />
               Cloud Infrastructure
@@ -280,7 +288,7 @@ const Index = () => {
               <Shield className="w-6 h-6 inline mr-2" />
               Security Best Practices
             </div>
-          </div> */}
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh] relative z-10">
             {/* Left Column - Content */}
@@ -292,9 +300,9 @@ const Index = () => {
                 <h2 className="text-2xl lg:text-3xl text-gray-600 leading-relaxed font-medium">
                   DevOps Engineer specializing in Cloud Infrastructure & Security
                 </h2>
-                {/* <p className="text-xl text-gray-700 leading-relaxed max-w-lg">
+                <p className="text-xl text-gray-700 leading-relaxed max-w-lg">
                   Experienced in automating cloud infrastructure, implementing security best practices, and optimizing system reliability through modern DevOps methodologies.
-                </p> */}
+                </p>
               </div>
               
               <div className="flex space-x-6 pt-6">
@@ -823,7 +831,7 @@ const Index = () => {
                   </p>
                   <div className="text-right">
                     <p className="text-sm text-gray-500">GPA</p>
-                    <p className="text-lg font-semibold text-gray-900">3.8/4</p>
+                    <p className="text-lg font-semibold text-gray-900">8.04/10</p>
                   </div>
                 </div>
               </CardContent>
