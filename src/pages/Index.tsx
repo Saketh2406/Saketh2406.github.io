@@ -204,11 +204,11 @@ const Index = () => {
   const projects = [
     {
       id: 1,
-      title: "CloudOps Dashboard & IAM Monitoring Automation (2024)",
-      description: "Developed IAM user access monitoring with AWS Lambda and Python to track anomalies and enforce least-privilege roles. Implemented audit log aggregation from IAM and CloudTrail using OpenSearch for real-time access tracking. Integrated multi-factor access audit and notification system using SNS for security rule violations.",
-      link: "https://github.com/Saketh2406/CloudOpsDashboard",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
-      alt: "CloudOps Dashboard interface showing monitoring data"
+      title: "T-Mobile DevOps Microservice Application",
+      description: "A cloud-native microservice application built using Node.js and containerized with Docker, deployed on Amazon EC2, and managed with a full GitLab CI/CD pipeline. The project demonstrates core DevOps skills including infrastructure provisioning with Terraform, reverse proxy setup using NGINX, and automation using Ansible. Designed and deployed a RESTful microservice app on EC2 with automated builds and deployments.",
+      link: "https://github.com/Saketh2406/tmobile-devops-microservice",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+      alt: "DevOps microservice architecture diagram"
     },
     {
       id: 2,
@@ -229,11 +229,11 @@ const Index = () => {
     },
     {
       id: 4,
-      title: "T-Mobile DevOps Microservice Application",
-      description: "A cloud-native microservice application built using Node.js and containerized with Docker, deployed on Amazon EC2, and managed with a full GitLab CI/CD pipeline. The project demonstrates core DevOps skills including infrastructure provisioning with Terraform, reverse proxy setup using NGINX, and automation using Ansible. Designed and deployed a RESTful microservice app on EC2 with automated builds and deployments.",
-      link: "https://github.com/Saketh2406/tmobile-devops-microservice",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
-      alt: "DevOps microservice architecture diagram"
+      title: "CloudOps Dashboard & IAM Monitoring Automation (2024)",
+      description: "Developed IAM user access monitoring with AWS Lambda and Python to track anomalies and enforce least-privilege roles. Implemented audit log aggregation from IAM and CloudTrail using OpenSearch for real-time access tracking. Integrated multi-factor access audit and notification system using SNS for security rule violations.",
+      link: "https://github.com/Saketh2406/CloudOpsDashboard",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
+      alt: "CloudOps Dashboard interface showing monitoring data"
     }
   ];
 
