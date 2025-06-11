@@ -1,0 +1,45 @@
+
+
+  VITE v5.4.10  ready in 146 ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://192.168.1.179:8080/
+  ➜  press h + enter to show help
+Browserslist: browsers data (caniuse-lite) is 9 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+^C
+sakethreddysadu@Sakeths-MBP Saketh2406.github.io % git add -A 
+git commit -m "Rebuilt portfolio with latest project"
+git push
+
+[main 7f8d47ea] Rebuilt portfolio with latest project
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+To https://github.com/Saketh2406/Saketh2406.github.io.git
+ ! [rejected]          main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/Saketh2406/Saketh2406.github.io.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+sakethreddysadu@Sakeths-MBP Saketh2406.github.io % git pull origin main --rebase
+
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 5 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (5/5), 1.06 KiB | 108.00 KiB/s, done.
+From https://github.com/Saketh2406/Saketh2406.github.io
+ * branch              main       -> FETCH_HEAD
+   baa605fd..60762add  main       -> origin/main
+Successfully rebased and updated refs/heads/main.
+sakethreddysadu@Sakeths-MBP Saketh2406.github.io % git commit -m "Update: latest portfolio changes with new project"
+
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+sakethreddysadu@Sakeths-MBP Saketh2406.github.io % [201~
+
