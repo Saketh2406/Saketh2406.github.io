@@ -50,7 +50,7 @@ const Index = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       // Update active section based on scroll position
       const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'education', 'contact'];
       const current = sections.find(section => {
@@ -112,10 +112,10 @@ const Index = () => {
       const subject = encodeURIComponent(`Portfolio Contact: Message from ${formData.name}`);
       const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
       const mailtoLink = `mailto:sakethsadu@gmail.com?subject=${subject}&body=${body}`;
-      
+
       // Open default email client
       window.location.href = mailtoLink;
-      
+
       toast({
         title: "Email client opened!",
         description: "Your default email application should now be open with the message pre-filled.",
@@ -204,11 +204,11 @@ const Index = () => {
   const projects = [
     {
       id: 1,
-      title: "T-Mobile DevOps Microservice Application",
-      description: "A cloud-native microservice application built using Node.js and containerized with Docker, deployed on Amazon EC2, and managed with a full GitLab CI/CD pipeline. The project demonstrates core DevOps skills including infrastructure provisioning with Terraform, reverse proxy setup using NGINX, and automation using Ansible. Designed and deployed a RESTful microservice app on EC2 with automated builds and deployments.",
-      link: "https://gitlab.com/saketh2406-group/Saketh2406-project",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
-      alt: "DevOps microservice architecture diagram"
+      title: "CloudOps Dashboard & IAM Monitoring Automation (2024)",
+      description: "Developed IAM user access monitoring with AWS Lambda and Python to track anomalies and enforce least-privilege roles. Implemented audit log aggregation from IAM and CloudTrail using OpenSearch for real-time access tracking. Integrated multi-factor access audit and notification system using SNS for security rule violations.",
+      link: "https://github.com/Saketh2406/CloudOpsDashboard",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
+      alt: "CloudOps Dashboard interface showing monitoring data"
     },
     {
       id: 2,
@@ -229,11 +229,11 @@ const Index = () => {
     },
     {
       id: 4,
-      title: "CloudOps Dashboard & IAM Monitoring Automation (2024)",
-      description: "Developed IAM user access monitoring with AWS Lambda and Python to track anomalies and enforce least-privilege roles. Implemented audit log aggregation from IAM and CloudTrail using OpenSearch for real-time access tracking. Integrated multi-factor access audit and notification system using SNS for security rule violations.",
-      link: "https://github.com/Saketh2406/CloudOpsDashboard",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
-      alt: "CloudOps Dashboard interface showing monitoring data"
+      title: "T-Mobile DevOps Microservice Application",
+      description: "A cloud-native microservice application built using Node.js and containerized with Docker, deployed on Amazon EC2, and managed with a full GitLab CI/CD pipeline. The project demonstrates core DevOps skills including infrastructure provisioning with Terraform, reverse proxy setup using NGINX, and automation using Ansible. Designed and deployed a RESTful microservice app on EC2 with automated builds and deployments.",
+      link: "https://github.com/Saketh2406/tmobile-devops-microservice",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+      alt: "DevOps microservice architecture diagram"
     }
   ];
 
@@ -272,10 +272,10 @@ const Index = () => {
 
       {/* Container */}
       <div className="max-w-6xl mx-auto px-4 py-4">
-       
+        {/* Hero Section */}
         <section id="hero" className="pt-24 pb-20 relative overflow-hidden">
-      
-          {/* <div className="absolute inset-0 pointer-events-none">
+          {/* Floating text elements */}
+          <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-32 left-8 text-blue-100 text-sm font-medium animate-pulse">
               <Cloud className="w-6 h-6 inline mr-2" />
               Cloud Infrastructure
@@ -288,7 +288,7 @@ const Index = () => {
               <Shield className="w-6 h-6 inline mr-2" />
               Security Best Practices
             </div>
-          </div> */}
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh] relative z-10">
             {/* Left Column - Content */}
@@ -299,12 +299,13 @@ const Index = () => {
                 </h1>
                 <h2 className="text-2xl lg:text-3xl text-gray-600 leading-relaxed font-medium">
                   DevOps Engineer specializing in Cloud Infrastructure & Security
+                  Software Engineer specialized in Cloud Infrastructure, Data, and Security
                 </h2>
                 <p className="text-xl text-gray-700 leading-relaxed max-w-lg">
-                  {/* Experienced in automating cloud infrastructure, implementing security best practices, and optimizing system reliability through modern DevOps methodologies. */}
+                  Experienced in automating cloud infrastructure, implementing security best practices, and optimizing system reliability through modern DevOps methodologies.
                 </p>
               </div>
-              
+
               <div className="flex space-x-6 pt-6">
                 <a
                   href="https://github.com/Saketh2406"
@@ -369,7 +370,7 @@ const Index = () => {
         {/* Skills Section */}
         <section id="skills" className="py-16">
           <h2 className="text-3xl font-semibold text-gray-900 mb-16 text-center">Skills & Expertise</h2>
-          
+
           <div className="space-y-12">
             {/* AWS Skills */}
             <div className="space-y-6">
@@ -697,6 +698,7 @@ const Index = () => {
                     <div>
                       <CardTitle className="text-xl font-semibold text-gray-900">
                         AWS Cloud Test Engineer Intern
+                        Cloud DevOps Intern
                       </CardTitle>
                       <p className="text-lg text-blue-600 font-medium">Nurtur Energy</p>
                     </div>
@@ -713,6 +715,7 @@ const Index = () => {
                   <div className="flex items-center space-x-1">
                     <MapPin className="w-4 h-4" />
                     <span className="text-sm">Maryland Heights, Missouri, USA</span>
+                    <span className="text-sm">May 2024 – Apr 2025</span>
                   </div>
                 </div>
               </CardHeader>
@@ -748,8 +751,10 @@ const Index = () => {
                     <div>
                       <CardTitle className="text-xl font-semibold text-gray-900">
                         AWS Cloud Operate
+                        Cloud Infrastructure & Automation Engineer
                       </CardTitle>
                       <p className="text-lg text-green-600 font-medium">Cognizant Technology Solutions Corporation</p>
+                      <p className="text-lg text-green-600 font-medium">Cognizant</p>
                     </div>
                   </div>
                   <Badge variant="outline" className="text-sm">
@@ -760,10 +765,36 @@ const Index = () => {
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-4 h-4" />
                     <span className="text-sm">Mar 2022 – Jul 2023</span>
+                    <span className="text-sm">Mar 2022 – Aug 2023</span>
                   </div>
+                </div>
+              </CardHeader>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow duration-200 border-gray-200">
+              <CardHeader className="pb-4">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <Building2 className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl font-semibold text-gray-900">
+                        Software Developer Intern
+                      </CardTitle>
+                      <p className="text-lg text-purple-600 font-medium">DyoCense</p>
+                    </div>
+                  </div>
+                  <Badge variant="outline" className="text-sm">
+                    Internship
+                  </Badge>
+                </div>
+                <div className="flex items-center space-x-4 text-gray-600 mt-2">
                   <div className="flex items-center space-x-1">
                     <MapPin className="w-4 h-4" />
                     <span className="text-sm">Hyderabad, India</span>
+                    <Calendar className="w-4 h-4" />
+                    <span className="text-sm">Mar 2019 – Feb 2022</span>
                   </div>
                 </div>
               </CardHeader>
@@ -788,6 +819,7 @@ const Index = () => {
                 </ul>
               </CardContent>
             </Card>
+
           </div>
         </section>
 
