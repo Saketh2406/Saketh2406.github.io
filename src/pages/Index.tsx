@@ -50,7 +50,7 @@ const Index = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-
+      
       // Update active section based on scroll position
       const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'education', 'contact'];
       const current = sections.find(section => {
@@ -112,10 +112,10 @@ const Index = () => {
       const subject = encodeURIComponent(`Portfolio Contact: Message from ${formData.name}`);
       const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
       const mailtoLink = `mailto:sakethsadu@gmail.com?subject=${subject}&body=${body}`;
-
+      
       // Open default email client
       window.location.href = mailtoLink;
-
+      
       toast({
         title: "Email client opened!",
         description: "Your default email application should now be open with the message pre-filled.",
@@ -298,14 +298,13 @@ const Index = () => {
                   Saketh Reddy Sadu
                 </h1>
                 <h2 className="text-2xl lg:text-3xl text-gray-600 leading-relaxed font-medium">
-                  DevOps Engineer specializing in Cloud Infrastructure & Security
                   Software Engineer specialized in Cloud Infrastructure, Data, and Security
                 </h2>
                 <p className="text-xl text-gray-700 leading-relaxed max-w-lg">
                   Experienced in automating cloud infrastructure, implementing security best practices, and optimizing system reliability through modern DevOps methodologies.
                 </p>
               </div>
-
+              
               <div className="flex space-x-6 pt-6">
                 <a
                   href="https://github.com/Saketh2406"
@@ -370,7 +369,7 @@ const Index = () => {
         {/* Skills Section */}
         <section id="skills" className="py-16">
           <h2 className="text-3xl font-semibold text-gray-900 mb-16 text-center">Skills & Expertise</h2>
-
+          
           <div className="space-y-12">
             {/* AWS Skills */}
             <div className="space-y-6">
@@ -697,7 +696,6 @@ const Index = () => {
                     </div>
                     <div>
                       <CardTitle className="text-xl font-semibold text-gray-900">
-                        AWS Cloud Test Engineer Intern
                         Cloud DevOps Intern
                       </CardTitle>
                       <p className="text-lg text-blue-600 font-medium">Nurtur Energy</p>
@@ -710,35 +708,10 @@ const Index = () => {
                 <div className="flex items-center space-x-4 text-gray-600 mt-2">
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-4 h-4" />
-                    <span className="text-sm">May 2024 – Jul 2024</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <MapPin className="w-4 h-4" />
-                    <span className="text-sm">Maryland Heights, Missouri, USA</span>
                     <span className="text-sm">May 2024 – Apr 2025</span>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                    Automated AWS infrastructure health monitoring using CloudWatch and SNS alerts, reducing outage response times and supporting real-time system reliability.
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                    Developed IAM policies and crafted Python/Bash scripts for least-privilege access and secure service-to-service communication, aligning with rigorous security practices.
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                    Integrated real-time access tracking and security logs into OpenSearch for comprehensive user behavior auditing, reinforcing compliance measures.
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                    Designed and maintained IoT data ingestion pipelines with secure role-based access enforcement, demonstrating proficiency in infrastructure automation and continuous integration principles.
-                  </li>
-                </ul>
-              </CardContent>
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow duration-200 border-gray-200">
@@ -750,10 +723,8 @@ const Index = () => {
                     </div>
                     <div>
                       <CardTitle className="text-xl font-semibold text-gray-900">
-                        AWS Cloud Operate
                         Cloud Infrastructure & Automation Engineer
                       </CardTitle>
-                      <p className="text-lg text-green-600 font-medium">Cognizant Technology Solutions Corporation</p>
                       <p className="text-lg text-green-600 font-medium">Cognizant</p>
                     </div>
                   </div>
@@ -764,7 +735,6 @@ const Index = () => {
                 <div className="flex items-center space-x-4 text-gray-600 mt-2">
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-4 h-4" />
-                    <span className="text-sm">Mar 2022 – Jul 2023</span>
                     <span className="text-sm">Mar 2022 – Aug 2023</span>
                   </div>
                 </div>
@@ -791,33 +761,11 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-4 text-gray-600 mt-2">
                   <div className="flex items-center space-x-1">
-                    <MapPin className="w-4 h-4" />
-                    <span className="text-sm">Hyderabad, India</span>
                     <Calendar className="w-4 h-4" />
                     <span className="text-sm">Mar 2019 – Feb 2022</span>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-green-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                    Managed user accounts and IAM roles across AWS environments, conducting periodic access reviews to maintain compliance with security frameworks.
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-green-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                    Enhanced cloud security posture by implementing robust IAM policies, enforcing MFA, and logging activities via CloudTrail to uphold industry-standard practices.
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-green-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                    Facilitated infrastructure-as-code deployments using Terraform for consistent and automated resource provisioning.
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-green-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                    Investigated identity-related incidents leveraging CloudWatch metrics and logs, contributing to a zero-trust security approach and continuous operational improvements.
-                  </li>
-                </ul>
-              </CardContent>
             </Card>
 
           </div>
@@ -863,7 +811,7 @@ const Index = () => {
                   </p>
                   <div className="text-right">
                     <p className="text-sm text-gray-500">GPA</p>
-                    <p className="text-lg font-semibold text-gray-900">8.04/10</p>
+                    <p className="text-lg font-semibold text-gray-900">3.84/4.0</p>
                   </div>
                 </div>
               </CardContent>
