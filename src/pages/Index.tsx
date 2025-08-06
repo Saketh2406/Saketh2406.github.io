@@ -696,7 +696,7 @@ const Index = () => {
                     </div>
                     <div>
                       <CardTitle className="text-xl font-semibold text-gray-900">
-                        Cloud DevOps Intern
+                        DevSecOps Digital Engineering Intern
                       </CardTitle>
                       <p className="text-lg text-blue-600 font-medium">Nurtur Energy</p>
                     </div>
@@ -708,7 +708,7 @@ const Index = () => {
                 <div className="flex items-center space-x-4 text-gray-600 mt-2">
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-4 h-4" />
-                    <span className="text-sm">May 2024 – Apr 2025</span>
+                    <span className="text-sm">May 2024 – Nov 2024</span>
                   </div>
                 </div>
               </CardHeader>
@@ -750,7 +750,7 @@ const Index = () => {
                     </div>
                     <div>
                       <CardTitle className="text-xl font-semibold text-gray-900">
-                        Software Developer Intern
+                        Program Analyst Intern
                       </CardTitle>
                       <p className="text-lg text-purple-600 font-medium">DyoCense</p>
                     </div>
@@ -762,7 +762,7 @@ const Index = () => {
                 <div className="flex items-center space-x-4 text-gray-600 mt-2">
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-4 h-4" />
-                    <span className="text-sm">Mar 2019 – Feb 2022</span>
+                    <span className="text-sm">Mar 2021 – Feb 2022</span>
                   </div>
                 </div>
               </CardHeader>
